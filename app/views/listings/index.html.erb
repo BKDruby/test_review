@@ -1,0 +1,23 @@
+
+<h1>Listings</h1>
+<div class="container mt-4">
+  <%= link_to 'Add new Listing', new_listing_path, class: 'btn btn-primary mb-3' %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>URL</th>
+        <th>Created At</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody data-controller="listings" data-action="click->listings#open">
+      <% @listings.each do |listing| %>
+        <tr>
+          <td><%= link_to listing.url, listing_path(listing) %></td>
+          <td><%= listing.created_at %></td>
+          <td><%= listing.scrape_status.humanize %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

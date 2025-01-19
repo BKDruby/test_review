@@ -1,0 +1,20 @@
+<h1 class="text-center mb-4">Add URL</h1>
+
+<%= form_with(model: @listing, local: true, class: "form-container") do |form| %>
+  <% if @listing.errors.any? %>
+    <div class="alert alert-danger">
+      <h4><%= pluralize(@listing.errors.count, "error") %> prohibited this listing from being saved:</h4>
+      <ul>
+        <% @listing.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group d-flex align-items-center mb-3">
+    <%= form.label :url, class: "form-label mr-20" %>
+    <%= form.text_field :url, required: true, class: "form-control mr-20", placeholder: "Enter the URL" %>
+    <%= form.submit "Save URL", class: "btn btn-primary" %>
+  </div>
+<% end %>

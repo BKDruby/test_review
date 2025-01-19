@@ -1,0 +1,14 @@
+<h3>Reviews for listing <%= @listing.url %></h3>
+
+<!-- Word Cloud -->
+<div data-controller="word-cloud"
+     data-word-cloud-words="<%= @listing.words_frequencies.to_json %>">
+  <canvas data-word-cloud-target="output" style="width:100%; height:400px;"></canvas>
+</div>
+
+<!-- Bar Chart -->
+<h3 class="mt-5">Reviews per Month</h3>
+<div data-controller="review-chart"
+     data-review-chart-reviews="<%= @listing.chart_data.to_json %>">
+  <canvas data-review-chart-target="chart" style="width:100%; height:400px;"></canvas>
+</div>
