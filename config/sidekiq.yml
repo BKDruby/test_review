@@ -1,0 +1,6 @@
+:concurrency: 5
+:scheduler:
+  :schedule:
+    reviews_collection:
+      cron: "0 3 * * *"
+      class: "ReviewsDailyUpdaterJob"
