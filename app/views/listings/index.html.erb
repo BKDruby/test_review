@@ -5,17 +5,19 @@
   <table class="table table-striped">
     <thead>
       <tr>
-        <th>URL</th>
         <th>Created At</th>
+        <th>Last synced at</th>
         <th>Status</th>
+        <th>URL</th>
       </tr>
     </thead>
     <tbody data-controller="listings" data-action="click->listings#open">
       <% @listings.each do |listing| %>
         <tr>
-          <td><%= link_to listing.url, listing_path(listing) %></td>
-          <td><%= listing.created_at %></td>
+          <td><%= link_to(listing.created_at, listing_path(listing)) %></td>
+          <td><%= listing.updated_at %></td>
           <td><%= listing.scrape_status.humanize %></td>
+          <td><%= listing.url.truncate(80) %></td>
         </tr>
       <% end %>
     </tbody>

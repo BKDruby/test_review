@@ -13,7 +13,9 @@ module Airbnb
         reviews_request = RequestCatcher.call(url:, url_request_pattern: REVIEWS_URL_PATTERN)
 
         Gatherer.call(reviews_request) do |reviews_response|
-          Parser.call(reviews_response, listing_id:).tap { |reviews| Review.create!(reviews) }
+          Parser.call(reviews_response, listing_id:).tap do |reviews|
+            Review.upsert_all(reviews, unique_by: :index_reviews_on_external_uid)
+          end
         end
       end
 
