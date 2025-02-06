@@ -44,7 +44,7 @@ group :development, :test do
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
-  gem "rspec-rails", "~> 6.0"
+  gem "rspec-rails", "~> 7.1"
   gem "vcr", "~> 6.1"
   gem "webmock", "~> 3.18"
   gem "selenium-webdriver"
