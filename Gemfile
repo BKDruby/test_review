@@ -46,7 +46,7 @@ group :development, :test do
   gem "rubocop-rails-omakase", require: false
   gem "rspec-rails", "~> 6.0"
   gem "vcr", "~> 6.1"
-  gem "webmock", "~> 3.18"
+  gem "webmock", "~> 3.25"
   gem "selenium-webdriver"
   gem "selenium-devtools"
 end
